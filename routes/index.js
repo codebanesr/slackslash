@@ -1,9 +1,17 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.post("/", function(req, res, next) {
+  res.status(200).send("Post request @Home route");
+});
+
+router.get("/addtodo", function(req, res, next) {
+  res.status(200).send("Hello there");
+});
+
+router.post("/addtodo", function(req, res, next) {
+  res.status(200).send("Post request received at /addtodo");
 });
 
 module.exports = router;
