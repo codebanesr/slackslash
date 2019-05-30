@@ -4,7 +4,7 @@ const Todo = require("../models/todo");
 
 /* GET home page. */
 
-router.get("/", function(req, res, next) {
+router.all("/", function(req, res, next) {
   res.json({
     message: "You are on the homepage"
   });
@@ -19,15 +19,13 @@ router.post("/addtodo", async (req, res, next) => {
   // if (error) return res.status(400).send(error.details[0].message);
 
   let todo = new Todo({
-    name: req.body.text,
-    created_by: "Shanur"
+    name: req.body.text
   });
-  todo = await todo.save();
 
+  todo = await todo.save();
   res.send(todo);
 });
 
-// this has to be used to delete a task, takes one argument the name of the task
 router.post("/marktodo", async (req, res, next) => {
   let result = await Todo.findOneAndDelete({ name: req.body.text });
   if (!result) {

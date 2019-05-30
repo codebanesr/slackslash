@@ -6,10 +6,6 @@ const todoSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 255
-    },
-    created_by: {
-        type: String,
-        minlength: 4
     }
 })
 
@@ -17,3 +13,7 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema)
 module.exports = Todo;
+
+
+// next up write code for multiple channels, slack sends the channel name with
+// the request
