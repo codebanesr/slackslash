@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Todo = require("../models/todo");
-const postWebhook = require("../webhooks/post-webhook");
+const emptyTodo = require("../webhooks/post-webhook");
 /* GET home page. */
 
 router.all("/", function(req, res, next) {
@@ -20,8 +20,30 @@ router.post("/addtodo", async (req, res, next) => {
     channel_id: req.body.channel_id
   });
 
-  todo = await todo.save();
-  res.send(todo);
+  try {
+    todo = await todo.save();
+    var payload = {
+      icon_emoji: ":smiley:",
+      attachments: [
+        {
+          author_link: "https://github.com/shanurrahman",
+          author_name: `${req.body.user_name}`,
+          text: `Successfully Added Task : ${todo.name}`,
+          mrkdwn_in: ["text", "pretext"],
+          footer:
+            "Adding CO2 to the air is like throwing another blanket on the bed!",
+          footer_icon:
+            "https://platform.slack-edge.com/img/default_application_icon.png",
+          ts: +new Date(),
+          color: "#07700b"
+        }
+      ]
+    };
+    emptyTodo(payload);
+    return res.end();
+  } catch (e) {
+    return res.send("Cannot add task, more information can be added here!!");
+  }
 });
 
 router.post("/marktodo", async (req, res, next) => {
@@ -32,23 +54,58 @@ router.post("/marktodo", async (req, res, next) => {
   if (!result) {
     return res.send("Todo with the following name does not exist");
   }
-  res.send(result);
+  return res.send(result);
 });
 
 router.post("/listtodo", async (req, res, next) => {
   let todo = await Todo.find({ channel_id: req.body.channel_id }).select(
     "name created_by -_id"
   );
+
+  // if the result is empty
   if (todo.length === 0) {
     var payload = {
+      user_name: req.body.username,
+      mrkdwn: false,
       icon_emoji: ":worried:",
-      text: "Your Todo List is empty"
+      attachments: [
+        {
+          pretext: "*Empty Todo*",
+          text: "Try entering tasks",
+          mrkdwn_in: ["text", "pretext"],
+          color: "#e8811b"
+        }
+      ]
     };
 
-    postWebhook(payload);
+    emptyTodo(payload);
     return res.end();
   }
-  res.status(200).json(todo);
+
+  // otherwise
+  let out = "";
+  todo.forEach(t => {
+    out += t.name + "\n";
+  });
+  var payload = {
+    icon_emoji: ":smiley:",
+    attachments: [
+      {
+        author_link: "https://github.com/shanurrahman",
+        author_name: `${req.body.user_name}`,
+        text: out,
+        mrkdwn_in: ["text", "pretext"],
+        footer: "We Become What We Think About!",
+        footer_icon:
+          "https://platform.slack-edge.com/img/default_application_icon.png",
+        ts: +new Date(),
+        color: "#16448e"
+      }
+    ]
+  };
+
+  emptyTodo(payload);
+  res.end();
 });
 
 module.exports = router;
