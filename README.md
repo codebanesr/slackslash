@@ -28,7 +28,7 @@ You can switch from one to another by clicking a list item on the left.
 You can delete a todo by typing the **/marktodo todoname** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity. (Trashing the todo is in beta currently)
 
 
-# Synchronization
+# Synchronization [concept]
 
 Synchronization is one of the biggest features of StackSlash. It enables you to synchronize any task in your workspace with other tasks stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the task with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
 
