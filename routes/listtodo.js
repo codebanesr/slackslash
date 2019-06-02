@@ -9,6 +9,7 @@ router.post("/", async (req, res, next) => {
   );
 
   // if the result is empty
+  console.log(req.body);
   if (todo.length === 0) {
     let payload = {
       user_name: req.body.username,
@@ -22,7 +23,7 @@ router.post("/", async (req, res, next) => {
           color: "#e8811b"
         }
       ],
-      channel: req.body.channel_id
+      channel_id: req.body.channel_id
     };
 
     postSlackMessage(payload);
