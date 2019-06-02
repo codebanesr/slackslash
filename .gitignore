@@ -4,6 +4,8 @@
 #environments
 *.env
 
+#starter code
+/start.sh
 
 #server code
 /server
