@@ -39,9 +39,8 @@ There are two types of synchronization and they can complement each other:
 
 ## Project Description
 This project contains three branches - 
-`remotes/origin/master
- remotes/origin/sr/no-web-hooks
- remotes/origin/with-webhooks`
+*`*remotes/origin/master *remotes/origin/sr/no-web-hooks *remotes/origin/with-webhooks`*
+ 
 Master contains the current code deployed on the aws server
 no-web-hook shows the approach of sending slack messages without using web hooks
 with-webhooks shows the approach of sending slack messages using webhooks
