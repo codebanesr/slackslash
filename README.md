@@ -38,8 +38,13 @@ There are two types of synchronization and they can complement each other:
 	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
 
 ## Project Description
-This project contains two branches - master and no-webhook
-These are two different approaches in which response can be sent to slack channels.
+This project contains three branches - 
+`remotes/origin/master
+ remotes/origin/sr/no-web-hooks
+ remotes/origin/with-webhooks`
+Master contains the current code deployed on the aws server
+no-web-hook shows the approach of sending slack messages without using web hooks
+with-webhooks shows the approach of sending slack messages using webhooks
 
 **Webhook Approach**
 
