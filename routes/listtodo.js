@@ -23,13 +23,14 @@ router.post("/", async (req, res, next) => {
           color: "#e8811b"
         }
       ],
-      channel_id: req.body.channel_id
+      channel: req.body.channel_id
     };
 
     postSlackMessage(payload);
     return res.end();
   }
 
+  return res.send("Which channel do you see this in ?");
   // otherwise
   let out = "";
   todo.forEach(t => {
