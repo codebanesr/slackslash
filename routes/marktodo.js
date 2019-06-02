@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const Todo = require("../models/todo");
 const postSlackMessage = require("../webhooks/post-webhook");
 
@@ -11,7 +11,7 @@ router.post("/", async (req, res, next) => {
     });
 
     console.log(result);
-    var payload = {
+    let payload = {
       icon_emoji: ":smiley:",
       attachments: [
         {

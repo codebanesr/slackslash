@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const Todo = require("../models/todo");
 const postSlackMessage = require("../webhooks/post-webhook");
 
@@ -10,7 +10,7 @@ router.post("/", async (req, res, next) => {
 
   // if the result is empty
   if (todo.length === 0) {
-    var payload = {
+    let payload = {
       user_name: req.body.username,
       mrkdwn: false,
       icon_emoji: ":worried:",
@@ -33,7 +33,7 @@ router.post("/", async (req, res, next) => {
   todo.forEach(t => {
     out += t.name + "\n";
   });
-  var payload = {
+  let payload = {
     icon_emoji: ":smiley:",
     attachments: [
       {
