@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 const Todo = require("../models/todo");
-const postSlackMessage = require("../webhooks/post-webhook");
 
 router.post("/", async (req, res, next) => {
   // const { error } = validate(req.body);
@@ -32,8 +31,7 @@ router.post("/", async (req, res, next) => {
         }
       ]
     };
-    postSlackMessage(payload, req);
-    return res.end();
+    res.json(payload);
   } catch (e) {
     return res.send("Cannot add task, more information can be added here!!");
   }

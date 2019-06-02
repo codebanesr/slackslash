@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../models/todo");
-const postSlackMessage = require("../webhooks/post-webhook");
 
 router.post("/", async (req, res, next) => {
   let todo = await Todo.find({ channel_id: req.body.channel_id }).select(
@@ -24,8 +23,7 @@ router.post("/", async (req, res, next) => {
       ]
     };
 
-    postSlackMessage(payload, req);
-    return res.end();
+    return res.json(payload);
   }
 
   // otherwise
@@ -50,7 +48,6 @@ router.post("/", async (req, res, next) => {
     ]
   };
 
-  postSlackMessage(payload);
-  res.end();
+  res.json(payload);
 });
 module.exports = router;
