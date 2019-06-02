@@ -5,7 +5,7 @@ const postSlackMessage = require("../webhooks/post-webhook");
 
 router.post("/", async (req, res, next) => {
   let todo = await Todo.find({ channel_id: req.body.channel_id }).select(
-    "name created_by -_id"
+    "name -_id"
   );
 
   // if the result is empty

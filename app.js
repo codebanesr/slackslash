@@ -9,6 +9,7 @@ var addtodoRouter = require("./routes/addtodo");
 var marktodoRouter = require("./routes/marktodo");
 var listtodoRouter = require("./routes/listtodo");
 var connect = require("./connect");
+var config = require("config");
 
 var app = express();
 
@@ -28,6 +29,10 @@ app.use("/marktodo", marktodoRouter);
 app.use("/listtodo", listtodoRouter);
 app.use("/addtodo", addtodoRouter);
 
+if (!config.get("dbUrl")) {
+  console.log("FATAL ERROR, database url string missing");
+  process.exit(1);
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

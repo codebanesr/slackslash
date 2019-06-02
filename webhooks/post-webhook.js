@@ -12,7 +12,11 @@ module.exports = function postSlackMessage(body, req) {
       }
     },
     function(error, response, body) {
-      console.log(body);
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(body);
+      }
     }
   );
 };
