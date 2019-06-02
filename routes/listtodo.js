@@ -21,7 +21,8 @@ router.post("/", async (req, res, next) => {
           mrkdwn_in: ["text", "pretext"],
           color: "#e8811b"
         }
-      ]
+      ],
+      channel: req.body.channel_id
     };
 
     postSlackMessage(payload);
