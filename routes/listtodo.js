@@ -24,8 +24,7 @@ router.post("/", async (req, res, next) => {
       ]
     };
 
-    postSlackMessage(payload);
-    return res.end();
+    return res.json(payload);
   }
 
   // otherwise
@@ -50,7 +49,6 @@ router.post("/", async (req, res, next) => {
     ]
   };
 
-  postSlackMessage(payload);
-  res.end();
+  res.json(payload);
 });
 module.exports = router;
