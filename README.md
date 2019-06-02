@@ -1,5 +1,5 @@
 
-# Welcome to StackEdit!
+# Welcome to StackSlash!
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 
@@ -57,3 +57,6 @@ Once your file is linked to a synchronized location, StackEdit will periodically
 If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
 
 > **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
+
+
+
