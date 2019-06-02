@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../models/todo");
-const postSlackMessage = require("../webhooks/post-webhook");
 
 router.post("/", async (req, res, next) => {
   let todo = await Todo.find({ channel_id: req.body.channel_id }).select(

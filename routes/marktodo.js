@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../models/todo");
-const postSlackMessage = require("../webhooks/post-webhook");
 
 router.post("/", async (req, res, next) => {
   try {
@@ -33,8 +32,7 @@ router.post("/", async (req, res, next) => {
         req.body.name
       } does not exist`;
     }
-    postSlackMessage(payload);
-    return res.end();
+   res.json(payload)
   } catch (e) {
     return res.send(`Error Occured while trying to delete : ${req.body.text}`);
   }
