@@ -3,7 +3,7 @@
 *.env
 
 #starter code
-/start.sh
+#/start.sh
 
 #server code
 /server
