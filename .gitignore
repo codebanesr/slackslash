@@ -1,5 +1,3 @@
-#bin
-/bin
 
 #environments
 *.env
