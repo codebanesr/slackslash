@@ -24,7 +24,7 @@ router.post("/", async (req, res, next) => {
       ]
     };
 
-    postSlackMessage(payload);
+    postSlackMessage(payload, req);
     return res.end();
   }
 

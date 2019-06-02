@@ -33,7 +33,7 @@ router.post("/", async (req, res, next) => {
         req.body.name
       } does not exist`;
     }
-    postSlackMessage(payload);
+    postSlackMessage(payload, req);
     return res.end();
   } catch (e) {
     return res.send(`Error Occured while trying to delete : ${req.body.text}`);

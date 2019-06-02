@@ -32,7 +32,7 @@ router.post("/", async (req, res, next) => {
         }
       ]
     };
-    postSlackMessage(payload);
+    postSlackMessage(payload, req);
     return res.end();
   } catch (e) {
     return res.send("Cannot add task, more information can be added here!!");
