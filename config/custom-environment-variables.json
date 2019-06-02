@@ -1,0 +1,8 @@
+{
+  "desc": "This file contains mapping of configuration setting to environment variables",
+  "mail": {
+    "password": "app_password"
+  },
+  "dbUrl": "dbUrl",
+  "webhook": "webhook"
+}

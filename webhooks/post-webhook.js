@@ -1,5 +1,5 @@
-const url =
-  "https://hooks.slack.com/services/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";
+const config = require("config");
+const url = config.get("webhook");
 const request = require("request");
 
 module.exports = function postSlackMessage(body, res) {

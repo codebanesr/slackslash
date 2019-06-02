@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const dbUrl = `mongodb://dev:devkumar123@ds117422.mlab.com:17422/datavalidation`;
+const config = require("config");
 
 module.exports = function connect() {
   mongoose
-    .connect(dbUrl, { useNewUrlParser: true })
+    .connect(config.get("dbUrl"), { useNewUrlParser: true })
     .then(data => {
       console.log("Connected!!");
     })
