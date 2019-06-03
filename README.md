@@ -24,22 +24,13 @@ You can switch from one to another by clicking a list item on the left.
 
 You can delete a todo by typing the **/marktodo todoname** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity. (Trashing the todo is in beta currently)
 
-
-# Synchronization
-
-Synchronization is one of the biggest features of StackSlash. It enables you to synchronize any task in your workspace with other tasks stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the task with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
-
-There are two types of synchronization and they can complement each other:
-
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
 ## Project Description
-This project contains two branches - master and no-webhook
-These are two different approaches in which response can be sent to slack channels.
+This project contains three branches - 
+*`*remotes/origin/master *remotes/origin/sr/no-web-hooks *remotes/origin/with-webhooks`*
+ 
+Master contains the current code deployed on the aws server
+no-web-hook shows the approach of sending slack messages without using web hooks
+with-webhooks shows the approach of sending slack messages using webhooks
 
 **Webhook Approach**
 
